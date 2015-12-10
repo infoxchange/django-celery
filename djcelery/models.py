@@ -19,7 +19,7 @@ from .picklefield import PickledObjectField
 from .utils import fromtimestamp, now
 from .compat import python_2_unicode_compatible
 
-TASK_STATE_CHOICES = zip(states.ALL_STATES, states.ALL_STATES)
+TASK_STATE_CHOICES = sorted(zip(states.ALL_STATES, states.ALL_STATES))
 
 
 def cronexp(field):

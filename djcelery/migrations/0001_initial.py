@@ -138,14 +138,14 @@ class Migration(migrations.Migration):
                     verbose_name='task id')),
                 ('status', models.CharField(
                     choices=[
-                        (b'RECEIVED', b'RECEIVED'),
-                        (b'RETRY', b'RETRY'),
-                        (b'REVOKED', b'REVOKED'),
-                        (b'SUCCESS', b'SUCCESS'),
-                        (b'STARTED', b'STARTED'),
-                        (b'FAILURE', b'FAILURE'),
-                        (b'PENDING', b'PENDING')],
-                    default=b'PENDING', max_length=50,
+                        ('FAILURE', 'FAILURE'),
+                        ('PENDING', 'PENDING'),
+                        ('RECEIVED', 'RECEIVED'),
+                        ('RETRY', 'RETRY'),
+                        ('REVOKED', 'REVOKED'),
+                        ('STARTED', 'STARTED'),
+                        ('SUCCESS', 'SUCCESS')],
+                    default='PENDING', max_length=50,
                     verbose_name='state')),
                 ('result', djcelery.picklefield.PickledObjectField(
                     default=None, editable=False, null=True)),
@@ -194,13 +194,13 @@ class Migration(migrations.Migration):
                     serialize=False, verbose_name='ID')),
                 ('state', models.CharField(
                     choices=[
-                        (b'RECEIVED', b'RECEIVED'),
-                        (b'RETRY', b'RETRY'),
-                        (b'REVOKED', b'REVOKED'),
-                        (b'SUCCESS', b'SUCCESS'),
-                        (b'STARTED', b'STARTED'),
-                        (b'FAILURE', b'FAILURE'),
-                        (b'PENDING', b'PENDING')],
+                        ('FAILURE', 'FAILURE'),
+                        ('PENDING', 'PENDING'),
+                        ('RECEIVED', 'RECEIVED'),
+                        ('RETRY', 'RETRY'),
+                        ('REVOKED', 'REVOKED'),
+                        ('STARTED', 'STARTED'),
+                        ('SUCCESS', 'SUCCESS')],
                     db_index=True, max_length=64, verbose_name='state')),
                 ('task_id', models.CharField(
                     max_length=36, unique=True, verbose_name='UUID')),
